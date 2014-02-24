@@ -10,7 +10,9 @@ def filter key, value
 	return hash
 end 
 
-File.open("input.txt", "r") do |f|
+file = ARGV[0]
+
+File.open(file, "r") do |f|
 	# n-1 hashes are captured in the block below
 	f.each_line do |line|
 		if line.match(/\w{1,5}\s\d(:)/) 
@@ -33,12 +35,6 @@ File.open("input.txt", "r") do |f|
 	end	
 end
 
-
-input ||= {
-	"Input 1" => ["1 book at 12.49", "1 music CD at 14.99", "1 chocolate bar at 0.85"],
-	"Input 2" => ["1 imported box of chocolates at 10.00", "1 imported bottle of perfume at 47.50"],
-	"Input 3" => ["1 imported bottle of perfume at 27.99", "1 bottle of perfume at 18.99", "1 packet of headache pills at 9.75", "1 box of imported chocolates at 11.25"]
-}
 
 puts "OUTPUT"
 input.each do |key, array|
